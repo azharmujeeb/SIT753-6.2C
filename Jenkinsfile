@@ -1,14 +1,39 @@
 pipeline {
-    agent any // This specifies that the pipeline can run on any available agent (Jenkins slave).
+    agent any
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean install' // Example Maven build command
+                sh 'mvn clean install' // Replace with your build commands
             }
         }
-        stage('Test') {
+        stage('Unit and Integration Tests') {
             steps {
-                sh 'mvn test' // Example Maven test command
+                sh 'mvn test' // Replace with your test commands
+            }
+        }
+        stage('Code Analysis') {
+            steps {
+                // Integrate a code analysis tool (e.g., SonarQube) here
+            }
+        }
+        stage('Security Scan') {
+            steps {
+                // Integrate a security scanning tool (e.g., OWASP ZAP) here
+            }
+        }
+        stage('Deploy to Staging') {
+            steps {
+                // Deploy to a staging environment (e.g., AWS EC2) here
+            }
+        }
+        stage('Integration Tests on Staging') {
+            steps {
+                // Run integration tests on the staging environment here
+            }
+        }
+        stage('Deploy to Production') {
+            steps {
+                // Deploy to a production environment (e.g., AWS EC2) here
             }
         }
     }
