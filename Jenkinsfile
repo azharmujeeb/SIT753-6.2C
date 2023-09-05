@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building'
+                echo 'Building' 
             }
         }
         stage('Unit and Integration Tests') {
@@ -41,8 +41,8 @@ pipeline {
         success {
             emailext(
                 subject: "Pipeline Successful",
-                body: "Fuck you dude",
-                to: 'disneyrathnayaka@gmail.com',
+                body: "The Jenkins pipeline completed successfully.",
+                to: 'ja.mujeeb.06@gmail.com',
             )
         }
         failure {
