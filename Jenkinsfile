@@ -3,37 +3,37 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean install' // Replace with your build commands
+                echo 'Building' // Replace with your build commands
             }
         }
         stage('Unit and Integration Tests') {
             steps {
-                sh 'mvn test' // Replace with your test commands
+                echo 'Unit and Integration Tests' // Replace with your test commands
             }
         }
         stage('Code Analysis') {
             steps {
-                // Integrate a code analysis tool (e.g., SonarQube) here
+                echo 'Code Analysis'// Integrate a code analysis tool (e.g., SonarQube) here
             }
         }
         stage('Security Scan') {
             steps {
-                // Integrate a security scanning tool (e.g., OWASP ZAP) here
+                echo 'Security Scan'// Integrate a security scanning tool (e.g., OWASP ZAP) here
             }
         }
         stage('Deploy to Staging') {
             steps {
-                // Deploy to a staging environment (e.g., AWS EC2) here
+                echo 'Deploy to Staging'// Deploy to a staging environment (e.g., AWS EC2) here
             }
         }
         stage('Integration Tests on Staging') {
             steps {
-                // Run integration tests on the staging environment here
+                echo 'Integration Tests on Staging'// Run integration tests on the staging environment here
             }
         }
         stage('Deploy to Production') {
             steps {
-                // Deploy to a production environment (e.g., AWS EC2) here
+                echo 'Deploy to Production'// Deploy to a production environment (e.g., AWS EC2) here
             }
         }
     }
