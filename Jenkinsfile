@@ -41,8 +41,8 @@ pipeline {
         success {
             emailext(
                 subject: "Pipeline Successful",
-                body: "The Jenkins pipeline completed successfully.",
-                to: 'ja.mujeeb.06@gmail.com',
+                body: "Fuck you dude",
+                to: 'disneyrathnayaka@gmail.com',
             )
         }
         failure {
