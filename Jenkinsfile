@@ -1,48 +1,31 @@
 pipeline {
-    agent any
+    agent any // This specifies that the pipeline can run on any available agent (Jenkins slave).
     stages {
         stage('Build') {
             steps {
-                // Use a build automation tool like Maven to compile and package your code.
+                sh 'mvn clean install' // Example Maven build command
             }
         }
-        stage('Unit and Integration Tests') {
+        stage('Test') {
             steps {
-                // Run unit tests and integration tests using appropriate test automation tools.
-            }
-        }
-        stage('Code Analysis') {
-            steps {
-                // Integrate a code analysis tool (e.g., SonarQube) to analyze your code.
-            }
-        }
-        stage('Security Scan') {
-            steps {
-                // Perform a security scan on the code using a tool (e.g., OWASP ZAP or SonarQube).
-            }
-        }
-        stage('Deploy to Staging') {
-            steps {
-                // Deploy the application to a staging server (e.g., AWS EC2 instance) using deployment scripts.
-            }
-        }
-        stage('Integration Tests on Staging') {
-            steps {
-                // Run integration tests on the staging environment.
-            }
-        }
-        stage('Deploy to Production') {
-            steps {
-                // Deploy the application to a production server (e.g., AWS EC2 instance) using deployment scripts.
+                sh 'mvn test' // Example Maven test command
             }
         }
     }
     post {
         success {
-            // Send a success notification email with logs as an attachment.
+            emailext(
+                subject: "Pipeline Successful",
+                body: "The Jenkins pipeline completed successfully.",
+                to: 'ja.mujeeb.06@gmail.com',
+            )
         }
         failure {
-            // Send a failure notification email with logs as an attachment.
+            emailext(
+                subject: "Pipeline Failed",
+                body: "The Jenkins pipeline failed. Please check the logs for details.",
+                to: 'ja.mujeeb.06@gmail.com',
+            )
         }
     }
 }
