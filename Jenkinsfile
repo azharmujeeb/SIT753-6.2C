@@ -43,6 +43,7 @@ pipeline {
                 subject: "Pipeline Successful",
                 body: "The Jenkins pipeline completed successfully.",
                 to: 'ja.mujeeb.06@gmail.com',
+                attachmentsPattern: '**/console-log.txt'
             )
         }
         failure {
@@ -50,6 +51,7 @@ pipeline {
                 subject: "Pipeline Failed",
                 body: "The Jenkins pipeline failed. Please check the logs for details.",
                 to: 'ja.mujeeb.06@gmail.com',
+                attachmentsPattern: '**/console-log.txt'
             )
         }
     }
